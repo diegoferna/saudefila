@@ -1,11 +1,15 @@
 import './App.css'
-import { Login } from './page/login'
+import { BrowserRouter } from 'react-router-dom';
+import {Router} from './Router';
 
 function App() {
 
   return (
-   <Login />
-  )
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+    )
+
 }
 
 export default App

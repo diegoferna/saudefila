@@ -2,7 +2,7 @@
 
 @layer base {
     body {
-        @apply bg-gradient-to-r from-slate-950 to-neutral-900 box-border border h-svh
+        @apply bg-gradient-to-r from-bgMain-100 to-bgMain-300 box-border border h-svh
     }
 }
 
