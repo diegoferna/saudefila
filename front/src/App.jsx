@@ -1,15 +1,16 @@
-import './App.css'
-import { BrowserRouter } from 'react-router-dom';
-import {Router} from './Router';
+import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import { Router } from "./Router";
+import { EventProvider } from "./context/EventProvider";
 
 function App() {
-
   return (
-      <BrowserRouter>
+    <BrowserRouter>
+      <EventProvider>
         <Router />
-      </BrowserRouter>
-    )
-
+      </EventProvider>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
