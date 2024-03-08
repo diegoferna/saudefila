@@ -9,6 +9,9 @@ export function Eventos() {
             </div>
             <div className="basis-3/4">
                 <UltimosAtendimentos />
+                <div>
+                    teste
+                </div>
             </div>
         </div>
     )
