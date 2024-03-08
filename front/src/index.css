@@ -4,6 +4,15 @@
     body {
         @apply bg-gradient-to-r from-bgMain-100 to-bgMain-300 box-border border h-svh
     }
+    .btn {
+        @apply font-bold py-2 px-4 rounded;
+      }
+      .btn-blue {
+        @apply bg-blue-500 text-white;
+      }
+      .btn-blue:hover {
+        @apply bg-blue-700;
+      }
 }
 
 @tailwind components;
