@@ -10,11 +10,19 @@ export function EventProvider({ children }: EventContextProviderProps) {
     const [evento, setEvento] = useState<Evento[]>([])
 
     async function criarEvento(evento: Evento) {
-        const data = await eventoQueries.criarEndereco(evento);
+        await eventoQueries.criarEndereco(evento);
+    }
+
+    async function listarEventos() {
+        const data = await eventoQueries.listarEventos();
+        console.log('espalhando a data', data)
         setEvento((state) => [...state, data]);
-      }
-    
-    useEffect(() => {},[])
+    }
+
+    useEffect(() => {
+        listarEventos();
+    },[])
+
     return (  
         <EventContext.Provider 
             value = {{

@@ -22,7 +22,7 @@ export async function criarEndereco(endereco: Evento) {
 
   export async function listarEventos(){
     try {
-      const response = await fetch('${BASE_URL}/evento')
+      const response = await fetch(`${BASE_URL}/evento`)
       if(!response){
         throw new Error("Erro ao buscar por eventos");
       }

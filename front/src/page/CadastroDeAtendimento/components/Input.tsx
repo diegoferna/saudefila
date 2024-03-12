@@ -2,6 +2,7 @@ type inputProps = {
     label?: string;
     placeholder?: string;
     size?: string;
+    handleSubmit: (data: string) => void
 }
 
 function Input({ label = "Evento", placeholder = 'Ex: Curso de Informática.' , size= 'w-full' }:inputProps) {

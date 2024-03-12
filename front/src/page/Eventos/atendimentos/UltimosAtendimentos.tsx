@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import CardEventos from "./components/CardEventos";
+import { EventContext } from "../../../context/useContext";
 
 export function UltimosAtendimentos() {
+  const { Evento } = useContext(EventContext);
+  const { evento } = Evento;
+  console.log('listando eventos cadastrados', evento);
   return (
     <div className="h-full basis-2/4 grid grid-cols-4">
       <div className="col-span-3 p-2">
