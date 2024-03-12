@@ -30,4 +30,9 @@ export async function eventoRoutes(app: FastifyInstance) {
 
         return reply.status(201).send(evento);
     })
+
+    app.get("/", async function(request, reply){
+        const eventos = await knex("table_eventos").select();
+        reply.send(eventos);
+    })
 }
