@@ -1,9 +1,10 @@
 type inputProps = {
     status: string;
+    enable: boolean;
     handleSelecaoOpcao: () => void;
 }
 
-function InputStatus({status, handleSelecaoOpcao}:inputProps) {
+function InputStatus({status, handleSelecaoOpcao, enable = false}:inputProps) {
   return (
     <div className="flex flex-col w-full">
       <label
@@ -16,6 +17,7 @@ function InputStatus({status, handleSelecaoOpcao}:inputProps) {
         value={status}
         onChange={handleSelecaoOpcao}
         className="w-2/6 self-center block  mt-2 placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40"
+        disabled={enable}
       >
         <option value="atual">Atual</option>
         <option value="pendente">Pendente</option>
