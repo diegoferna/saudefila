@@ -4,6 +4,7 @@ import { Evento } from "./Evento/evento";
 type EventoProps = {
     evento: Evento[];
     criarEvento(evento: Evento): Promise<void>;
+    listarEventos: () => void;
 
 }
 

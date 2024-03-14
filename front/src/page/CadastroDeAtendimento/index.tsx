@@ -4,15 +4,14 @@ import { EventContext } from "../../context/useContext";
 import InputStatus from "./components/InputStatus";
 import InputData from "./components/InputData";
 
-type statusOptions = "atual" | "pendente" | "finalizado";
+type statusOptions = "Selecione" | "atual" | "pendente" | "finalizado";
 
 function CadastroDeAtendimento() {
   const { Evento } = useContext(EventContext);
   const { criarEvento } = Evento;
   const [local, setLocal] = useState("");
   const [nome, setNome] = useState("");
-  const [status, setStatus] = useState<statusOptions>("pendente");
-  const [enable, setEnable] = useState(false);
+  const [status, setStatus] = useState<statusOptions>("Selecione");
   const [load, setLoad] = useState(false);
   const [horaInicio, setHorainicio] = useState("");
   const [horaFim, setHorafim] = useState("");
@@ -44,17 +43,14 @@ function CadastroDeAtendimento() {
   };
 
   const handleSelecaoOpcao = (event: any) => {
-    console.log(event.target.value);
     setStatus(event.target.value);
   };
 
-  useEffect(() => {
-    console.log(horaInicio, horaFim, local, nome, status);
-  }, [horaInicio, horaFim, local, nome, status]);
+
   return (
     <div className="flex flex-col h-screen w-full  justify-center items-center ">
       <form
-        className={`flex flex-col justify-center items-center w-5/6 h-3/4 gap-2 ${
+        className={`flex flex-col justify-center items-center w-5/6 h-3/4 gap-2 uppercase ${
           load && "opacity-20"
         }`}
         action=""
@@ -97,11 +93,11 @@ function CadastroDeAtendimento() {
         </div>
 
         <div className="flex flex-col justify-start items-start w-2/6 gap-4 mt-4 ">
-          <button className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded w-full ">
+          <button className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded w-full uppercase ">
             Salvar
           </button>
 
-          <button className="btn bg-red-400 hover:bg-red-500 w-full">
+          <button className="btn bg-red-400 hover:bg-red-500 w-full text-white uppercase">
             Cancelar
           </button>
         </div>

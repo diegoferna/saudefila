@@ -3,6 +3,7 @@ const BASE_URL = "http://localhost:3333";
 
 export async function criarEndereco(endereco: Evento) {
     try {
+      console.log('bati aqui')
       const response = await fetch(`${BASE_URL}/evento`, {
         method: "POST",
         headers: {

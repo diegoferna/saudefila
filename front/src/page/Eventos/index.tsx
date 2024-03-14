@@ -3,7 +3,7 @@ import { UltimosAtendimentos } from "./atendimentos/UltimosAtendimentos";
 
 export function Eventos() {
     return(
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col h-full gap-4">
              <div className="basis-1/4">
                 <AtendimentoAtual />
             </div>
