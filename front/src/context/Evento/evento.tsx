@@ -3,6 +3,6 @@ export interface Evento {
     nome: string;
     local: string;
     horaInicio:string;
-    horaFim:string;
+    horaFinal:string;
     status:string;
 }

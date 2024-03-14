@@ -9,18 +9,18 @@ export async function eventoRoutes(app: FastifyInstance) {
             nome: z.string(),
             local: z.string(),
             horaInicio: z.string(),
-            horaFim: z.string(),
+            horaFinal: z.string(),
             status: z.string(),
         });
 
-        const { nome, local, horaInicio, horaFim, status } = createEndereco.parse(request.body)
+        const { nome, local, horaInicio, horaFinal, status } = createEndereco.parse(request.body)
 
         const evento = {
             id: randomUUID(),
             nome,
             local, 
             horaInicio,
-            horaFim,
+            horaFinal,
             status
         }
 

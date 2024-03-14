@@ -17,7 +17,6 @@ function CadastroDeAtendimento() {
   const [horaInicio, setHorainicio] = useState("");
   const [horaFim, setHorafim] = useState("");
 
-
   const handleSubmit = async (event: any) => {
     event.preventDefault();
 
@@ -26,18 +25,22 @@ function CadastroDeAtendimento() {
 
       await criarEvento({
         horaInicio: new Date(horaInicio).toString(),
-        horaFim: new Date(horaFim).toString(),
-        local,
+        horaFinal: new Date(horaFim).toString(),
         nome,
+        local,
         status,
       });
 
       setTimeout(() => {
-        setLoad(false)
+        setLoad(false);
       }, 5000);
     } catch (error) {
       console.log("error");
     }
+    setHorainicio(""),
+    setHorafim(""),
+    setNome(""),
+    setLocal("")
   };
 
   const handleSelecaoOpcao = (event: any) => {
@@ -47,7 +50,7 @@ function CadastroDeAtendimento() {
 
   useEffect(() => {
     console.log(horaInicio, horaFim, local, nome, status);
-  }, [horaInicio, horaFim, local, nome, status])
+  }, [horaInicio, horaFim, local, nome, status]);
   return (
     <div className="flex flex-col h-screen w-full  justify-center items-center ">
       <form
@@ -57,7 +60,13 @@ function CadastroDeAtendimento() {
         action=""
         onSubmit={handleSubmit}
       >
-        <Input label="Evento" size="w-2/6" name={evento} handleSubmit={setNome} enable={load}/>
+        <Input
+          label="Evento"
+          size="w-2/6"
+          name={nome}
+          chagenValue={setNome}
+          enable={load}
+        />
         <Input
           label="Local"
           placeholder="Ex: Distrito Itapuã"
@@ -73,14 +82,22 @@ function CadastroDeAtendimento() {
         />
 
         <div className="flex justify-between w-2/6 gap-20">
-          <InputData label="Hora Início" enable={load} value={horaInicio} changeHour={setHorainicio} />
-          <InputData label="Hora Fim" enable={load} value={horaFim} changeHour={setHorafim} />
+          <InputData
+            label="Hora Início"
+            enable={load}
+            value={horaInicio}
+            changeHour={setHorainicio}
+          />
+          <InputData
+            label="Hora Fim"
+            enable={load}
+            value={horaFim}
+            changeHour={setHorafim}
+          />
         </div>
 
         <div className="flex flex-col justify-start items-start w-2/6 gap-4 mt-4 ">
-          <button
-            className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded w-full "
-          >
+          <button className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded w-full ">
             Salvar
           </button>
 
@@ -92,7 +109,7 @@ function CadastroDeAtendimento() {
       {load && (
         <div
           role="status"
-          className="absolute -translate-x-1/2 -translate-y-1/2 top-2/4 left-1/2"
+          className="absolute -translate-x-1/2 -translate-y-1/2 top-2/4 left-1/2 bg-gray-200 p-4 border rounded-lg"
         >
           <svg
             aria-hidden="true"
