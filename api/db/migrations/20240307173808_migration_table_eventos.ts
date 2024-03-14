@@ -4,7 +4,8 @@ import type { Knex } from "knex";
 export async function up(knex: Knex): Promise<void> {
     await knex.schema.createTable('table_eventos', function (table) {
         table.uuid('id').primary();
-        table.date('data');
+        table.date('horaInicio');
+        table.date('horaFinal');
         table.string('nome').notNullable();
         table.string('local').notNullable();
         table.enu('status', ['atual', 'pendente', 'finalizado']);
