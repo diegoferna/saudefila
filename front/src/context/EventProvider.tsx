@@ -26,6 +26,14 @@ export function EventProvider({ children }: EventContextProviderProps) {
     setEvento(data);
 
   }
+/*
+  async function deletarEvento(id: string) {
+    const data = await eventoQueries.deletarEvento(id);
+    
+    console.log("espalhando a data", data);
+    setEvento(state => state.filter(evento => evento.id !== id));
+
+  }*/
 
   useEffect(() => {
     
@@ -35,7 +43,7 @@ export function EventProvider({ children }: EventContextProviderProps) {
   return (
     <EventContext.Provider
       value={{
-        Evento: { evento, criarEvento, listarEventos },
+        Evento: { evento, criarEvento, listarEventos},
       }}
     >
       {children}

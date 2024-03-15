@@ -1,6 +1,7 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import CardEventos from "./components/CardEventos";
 import { EventContext } from "../../../context/useContext";
+import EmptyEventos from "./components/EmptyEventos";
 
 export function UltimosAtendimentos() {
   const { Evento } = useContext(EventContext);
@@ -9,12 +10,16 @@ export function UltimosAtendimentos() {
 
   const eventosFinalizados = eventoIsLoaded
     ? evento.filter((e) => e.status == "finalizado")
-    : [ {'id': '',
-      'nome': '',
-      'local': '',
-      'horaInicio':'string',
-      'horaFinal':'',
-      'status':''}];
+    : [
+        {
+          id: "",
+          nome: "",
+          local: "",
+          horaInicio: "",
+          horaFinal: "",
+          status: "",
+        },
+      ];
 
   useEffect(() => {
     const loadPage = eventoIsLoaded ? setInterval(listarEventos, 5000) : 0;
@@ -23,23 +28,19 @@ export function UltimosAtendimentos() {
   }, []);
 
   return (
-    <div className="h-full basis-2/4 grid grid-cols-4 uppercase ">
-      <div className="col-span-3 p-2">
+    <div className="h-full basis-2/4 grid grid-cols-4 uppercase">
+      <div className="col-span-3 p-2 h-screen overflow-auto ">
         <div className="flex justify-center w-full p-2 bg-bgMain-300 border border-bgMain-200">
           <h3 className="font-mono font-semibold text-white ">
-            Eventos Encerrados
+            Eventos Pendentes
           </h3>
         </div>
-        {eventoIsLoaded ? (
-          <CardEventos evento={evento} />
-        ) : (
-     <></>
-        )}
+        {eventoIsLoaded ? <CardEventos evento={evento} /> : <EmptyEventos>Não tem eventos.</EmptyEventos>}
       </div>
       <div className="flex flex-col mt-2 border border-bgMain-200 shadow-xl  ">
         <div className="flex justify-center w-full p-2 bg-bgMain-300">
           <h3 className="font-mono font-semibold text-white">
-            Eventos Encerrados
+            Eventos Iniciados
           </h3>
         </div>
         <div className="w-full flex bg-bgMain-200 p-1 text-white">

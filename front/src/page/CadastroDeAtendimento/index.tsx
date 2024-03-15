@@ -43,6 +43,7 @@ function CadastroDeAtendimento() {
   };
 
   const handleSelecaoOpcao = (event: any) => {
+    console.log(event.target.value)
     setStatus(event.target.value);
   };
 
@@ -73,7 +74,7 @@ function CadastroDeAtendimento() {
         />
         <InputStatus
           status={status}
-          handleSelecaoOpcao={() => handleSelecaoOpcao}
+          handleSelecaoOpcao={(e: any) => handleSelecaoOpcao(e)}
           enable={load}
         />
 

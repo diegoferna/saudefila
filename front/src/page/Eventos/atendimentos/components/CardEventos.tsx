@@ -3,21 +3,29 @@ import CardItem from "./CardItem";
 import { Evento } from "../../../../context/Evento/evento";
 
 type cardEventosProps = {
-    evento: Evento[],
-}
+  evento: Evento[];
+};
 
-function CardEventos({ evento }:cardEventosProps) {
-  useEffect(() => {
-  }, [])
+function CardEventos({ evento }: cardEventosProps) {
+  useEffect(() => {}, []);
 
   return (
     <ul className="w-ful flex flex-col gap-2 ">
-      {evento.length != 0 ? evento.map((e: any) => {
-        return (
-         <CardItem evento={e.nome} local={e.local} bgStatus={e.status === "pendente" ?  "bg-teal-400" : "bg-teal-500"}/>
-        );
-      }) : <>Nenhum evento acontecendo</>}
-    
+      {evento.length != 0 ? (
+        evento.map((e: any) => {
+          return (
+            <CardItem
+              evento={e.nome}
+              local={e.local}
+              horaInicio={e.horaInicio}
+              horaFinal={e.horaFinal}
+              bgStatus={e.status === "pendente" ? "bg-teal-400" : "bg-teal-500"}
+            />
+          );
+        })
+      ) : (
+        <>Nenhum evento acontecendo</>
+      )}
     </ul>
   );
 }

@@ -1,7 +1,7 @@
 type inputProps = {
     status: string;
     enable: boolean;
-    handleSelecaoOpcao: () => void;
+    handleSelecaoOpcao: (e: any) => void;
 }
 
 function InputStatus({status, handleSelecaoOpcao, enable = false}:inputProps) {
@@ -19,7 +19,7 @@ function InputStatus({status, handleSelecaoOpcao, enable = false}:inputProps) {
         className="w-2/6 self-center block  mt-2 placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40"
         disabled={enable}
       >
-        <option defaultValue={'Selecione...'} selected></option>
+         <option defaultValue={'Selecione...'} selected>Selecione...</option>
         <option value="atual">Atual</option>
         <option value="pendente">Pendente</option>
         <option value="finalizado">Finalizado</option>

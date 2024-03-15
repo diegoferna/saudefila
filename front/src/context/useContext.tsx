@@ -5,7 +5,7 @@ type EventoProps = {
     evento: Evento[];
     criarEvento(evento: Evento): Promise<void>;
     listarEventos: () => void;
-
+   // deletarEvento: (id: string) => void;
 }
 
 interface EventContextData {
