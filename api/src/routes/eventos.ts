@@ -44,11 +44,8 @@ export async function eventoRoutes(app: FastifyInstance) {
         console.log(time)
         const eventos = await knex("table_eventos").select();
 
-        console.log(eventos)
-    
         eventos.sort((a, b) => new Date(b.horaInicio).getTime() - new Date(a.horaInicio).getTime());
 
-        console.log(eventos)
         reply.send(eventos);
     })
 }

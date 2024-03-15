@@ -21,6 +21,7 @@ export function EventProvider({ children }: EventContextProviderProps) {
 
   async function listarEventos() {
     const data = await eventoQueries.listarEventos();
+    
     console.log("espalhando a data", data);
     setEvento(data);
 

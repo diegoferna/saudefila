@@ -3,7 +3,6 @@ const BASE_URL = "http://localhost:3333";
 
 export async function criarEndereco(endereco: Evento) {
     try {
-      console.log('bati aqui')
       const response = await fetch(`${BASE_URL}/evento`, {
         method: "POST",
         headers: {
@@ -22,12 +21,15 @@ export async function criarEndereco(endereco: Evento) {
   }
 
   export async function listarEventos(){
+    console.log('antes do try')
     try {
       const response = await fetch(`${BASE_URL}/evento`)
-      if(!response){
-        throw new Error("Erro ao buscar por eventos");
+      if(!response.ok){
+        console.log('Erro na solicitação: ', response)
+        return ['']
       }
       const data = await response.json();
+
       return data;
     }catch(error){
       console.error(error);
