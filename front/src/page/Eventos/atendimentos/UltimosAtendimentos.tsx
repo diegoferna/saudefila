@@ -29,7 +29,7 @@ export function UltimosAtendimentos() {
 
   return (
     <div className="h-full basis-2/4 grid grid-cols-4 uppercase">
-      <div className="col-span-3 p-2 h-screen overflow-auto ">
+      <div className="col-span-3 p-2 h-screen overflow-auto scrollbar-hide">
         <div className="flex justify-center w-full p-2 bg-bgMain-300 border border-bgMain-200">
           <h3 className="font-mono font-semibold text-white ">
             Eventos Pendentes
